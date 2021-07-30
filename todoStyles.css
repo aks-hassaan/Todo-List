@@ -1,0 +1,36 @@
+li button {
+  float: right;
+  background-color: red;
+  color: white;
+  border-radius: 8px;
+}
+
+.innerArea {
+  display: none;
+}
+
+li {
+  list-style-type: none;
+  margin-left: 10px;
+  height: 40px;
+}
+li > input[type="checkbox"] {
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+#doneList li {
+  text-decoration: line-through;
+}
+
+h2 {
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+#doneDiv {
+  margin-top: 100px;
+}
+
+#newTaskDiv {
+  margin-top: 40px;
+}

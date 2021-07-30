@@ -10,12 +10,12 @@ function addNewTask(e) {
   if (newTodo === "") alert("Field is not allow to be Empty");
   else {
     enteredValue.value = "";
-    console.log("inside else");
     //creating all elements
     var listItem = document.createElement("li");
 
     var checkBox = document.createElement("input");
     checkBox.type = "checkbox";
+    checkBox.onchange = handelCheckBox;
 
     var deleteButton = document.createElement("button");
 
@@ -26,23 +26,34 @@ function addNewTask(e) {
     var newTodoText = document.createTextNode(newTodo);
 
     //adding check box ,delete button and todo tex to li
-    listItem.appendChild(newTodoText);
     listItem.appendChild(checkBox);
+    listItem.appendChild(newTodoText);
     listItem.appendChild(deleteButton);
     var list = document.getElementById("taskList");
     list.appendChild(listItem);
-    console.log("exiting else");
-    // var todos = document.getElementById("taskList");
-    // var newTodoText = document.createTextNode(newTodo);
-    // var newLi = document.createElement("li");
-    // newLi.appendChild(newTodoText);
-    // todos.appendChild(newLi);
+  }
+}
+
+function expandedDetails() {
+  var listItem = this.parentNode;
+  var para = document.createElement("p");
+  para.innerHTML = "<div>This should be opened and closed on head click.</div>";
+}
+
+function handelCheckBox() {
+  if (this.checked) {
+    //for adding into done
+    var listItem = this.parentNode;
+    var doneList = document.getElementById("doneList");
+    doneList.appendChild(listItem);
+  } else {
+    var listItem = this.parentNode;
+    var taskList = document.getElementById("taskList");
+    taskList.appendChild(listItem);
   }
 }
 
 function deleteTask() {
-  console.log("Delete Task...");
-
   var listItem = this.parentNode;
   var ul = listItem.parentNode;
   ul.removeChild(listItem);
